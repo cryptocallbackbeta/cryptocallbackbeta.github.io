@@ -1,0 +1,115 @@
+		<!-- Header -->
+		<section class="hero">
+		  <div class="hero-body">
+		    <div class="container">
+		      <h1 class="title is-1">
+		        Create a new alert!
+		      </h1>
+		    </div>
+		  </div>
+		</section>
+
+
+
+		<!-- Alert Form -->
+		<section class="container alert-form center">
+			<form id="alertForm" novalidate="novalidate">
+				<div class="title is-3">Send a&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="type" name="notification_type" type="text" onchange="typeCheck()" required>
+				        <option>Push Notification</option>
+				        <option>Text Message</option>
+				        <option selected="selected">Email</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title is-3">&nbsp;to&nbsp;</div>
+				<div class="field">
+				  <div id="contactTip" class="data-tip" data-tip="Enter your email address">
+				    <input id="contact" class="input" name="contact" type="email" placeholder="Email Address" onchange="contactCheck()">
+				  </div>
+				</div>
+				<div class="title is-3">&nbsp;when the&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="metric" name="metric" type="text" onchange="metricCheck()" required>
+				        <option selected="selected">Price</option>
+				        <option>Volume</option>
+				        <option>Market Cap</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title is-3">&nbsp;of&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select" required>
+				      <select id="asset" name="asset" type="text" onchange="assetCheck()" required>
+				        <option>BTC</option>
+								<option selected="selected">ETH</option>
+								<option>XRP</option>
+								
+
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title is-3">&nbsp;is&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="direction" name="direction" type="text" onchange="directionCheck()" required>
+				        <option selected="selected">Above</option>
+				        <option>Below</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title is-3">&nbsp;a value of&nbsp;</div>
+				<div class="field has-addons">
+					<div class="data-tip" data-tip="Only use numbers and one decimal: XXXX.XXX">
+						<p class="control">
+							<span class="select">
+								<select id="currency" name="currency" type="text" onchange="currencyCheck()">
+									<option selected="selected">$(USD)</option>
+								</select>
+							</span>
+						</p>
+						<p class="control">
+							<input id="amount" class="input" name="amount" type="number" placeholder="1000" onchange="amountCheck()">
+						</p>
+					</div>
+				</div>
+				<div class="title is-3">.</div>
+				<br><p class="inline">You will receive a<div id="typeProper" class="inline">n</div> <strong><em id="typeVal">email</em></strong> sent to <strong><em id="contactVal">(enter email address)</em></strong> when the <strong><em id="metricVal">price</em></strong> of <strong><em id="assetVal">ETH</em></strong> is <strong><em id="directionVal">above</em></strong> a value of <strong><em id="currencyVal">$</em><em id="amountVal">(enter value)</em></strong></p><br>
+
+				<div class="field is-horizontal">
+				  <div class="field-body">
+				    <div class="field">
+				      <div class="control center">
+				        <input id="alert-submit" type="submit" class="button is-primary" value="Submit Alert"/>
+				      </div>
+				      <div id="message" class="help is-danger"></div>
+				    </div>
+				  </div>
+				</div>
+			</form>
+		</section>
+
+
+
+
+		<!-- Divider -->
+		<section class="level donate-divider">
+		  <div class="level-item has-text-centered">
+		  	<div class="columns1">
+			    <div class="column1 1is-half">
+			    	Please <a href="https://cryptocallback.com/donate" target="_self">&nbsp;donate&nbsp;</a> to help support this project and the development of additional tools, resources, and services so we may continue to offer them for free.
+		    	</div>
+		    </div>
+		  </div>
+		</section>
