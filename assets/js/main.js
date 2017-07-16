@@ -21,7 +21,7 @@ function createAlert() {
 		log("Form Submission Initiated", "start");
 		log("\t- Form Data: \n" + form, "wait");
   var data = toJSON(form);
-  var url = "45.79.96.75:3000";
+  var url = "http://45.79.96.75:3000";
   // var url = "#";
   send(url, data, "post");
 	  log("Form Successfully Sent", "success");
@@ -145,19 +145,22 @@ var errMessage = {
 }
 function typeCheck() {
 	var value = document.getElementById("type").value.toLowerCase();
-	var typeProper = document.getElementById("typeProper");
+	var typeProper1 = document.getElementById("typeProper1");
+	var typeProper2 = document.getElementById("typeProper2");
 	var typeVal = document.getElementById("typeVal");
 	var contactPlaceholder = document.getElementById("contact");
 	var contactTip = document.getElementById("contactTip");
 	contactCheck();
 	typeVal.innerHTML = value;
 	if (value == "email") { 
-		typeProper.innerHTML =  "n";
+		typeProper1.innerHTML =  "n";
+		typeProper2.innerHTML =  "n";
 		contactPlaceholder.placeholder = "Email Address";
 		contactTip.setAttribute("data-tip", "Enter your email address");
 		contactTip.setAttribute("type", "email");
 	} else { 
-		typeProper.innerHTML =  ""
+		typeProper1.innerHTML =  ""
+		typeProper2.innerHTML =  ""
 		contactPlaceholder.placeholder = "Phone Number";
 		contactTip.setAttribute("data-tip", "Only enter numbers: XXXXXXXXXX");
 		contactTip.setAttribute("type", "tel");
@@ -222,7 +225,6 @@ function amountCheck() {
 	amountVal.innerHTML = value;
 	if ( isNumber(value) ) {
 		amount.style.borderColor = "#dbdbdb";
-		// console.log("amountCheck: " + errMessage)
 		errMessage["amount"] = "";
 	} else {
 		amount.style.borderColor = "red";
@@ -239,7 +241,6 @@ function errCheck() {
 	message = document.getElementById("message")
 	message = document.getElementById("message")
 	if (errMessage["contact"] == "" && errMessage["amount"] == "") {
-		// console.log("no messages: " + errMessage)
 		message.innerHTML = "";
 		return true
 	} else {

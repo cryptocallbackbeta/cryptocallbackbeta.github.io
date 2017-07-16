@@ -2,14 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>CryptoCallback</title>
-		<link rel="icon" type="image/png" href="assets/img/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CryptoCallback: Create price, volume, and market cap alerts</title>
+		<meta name="Author" content="CryptoCallback.com">
+		<meta name="Subject" content="Crypto">
+		<meta name="Description" content="Receive reliable and timely alert notifications when the price, volume, or market cap of any crypto-asset moves above or below a certain value.">
+		<meta name="Keywords" content="crypto, asset, currency, price, volume, market cap, alert">
+		<meta name="Language" content="English">
+		<meta name="Copyright" content="CryptoCallback">
+		<meta name="Contact" content="cryptocallback@gmail.com">
+		<meta name="Distribution" content="Global">
+		<meta name="Robots" content="index,follow">
+		<meta name="country" content="USA">
+
+
+		<link rel="icon" type="image/png" href="assets/img/icon.png" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/bulma.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 	</head>
-	<body>
+	<body id="alert">
 
 
 		<!-- Menu -->
@@ -48,8 +60,9 @@
 		<section class="hero">
 		  <div class="hero-body">
 		    <div class="container">
-		      <h1 class="title is-1">
-		        Create a new alert!
+		      <h1 class="title">
+		        <!-- Create a new alert! -->
+		        Create a crypto asset price, volume, or market cap alert
 		      </h1>
 		    </div>
 		  </div>
@@ -60,7 +73,7 @@
 		<!-- Alert Form -->
 		<section class="container alert-form center">
 			<form id="alertForm" novalidate="novalidate">
-				<div class="title is-3">Send a&nbsp;</div>
+				<div class="title is-4">Send a<div id="typeProper1" class="inline">n</div>&nbsp;</div>
 				<div class="field has-addons">
 				  <p class="control">
 				    <span class="select">
@@ -72,13 +85,13 @@
 				    </span>
 				  </p>
 				</div>
-				<div class="title is-3">&nbsp;to&nbsp;</div>
+				<div class="title is-4">&nbsp;to&nbsp;</div>
 				<div class="field">
 				  <div id="contactTip" class="data-tip" data-tip="Enter your email address">
 				    <input id="contact" class="input" name="contact" type="email" placeholder="Email Address" onchange="contactCheck()">
 				  </div>
 				</div>
-				<div class="title is-3">&nbsp;when the&nbsp;</div>
+				<div class="title is-4">&nbsp;when the&nbsp;</div>
 				<div class="field has-addons">
 				  <p class="control">
 				    <span class="select">
@@ -90,35 +103,23 @@
 				    </span>
 				  </p>
 				</div>
-				<div class="title is-3">&nbsp;of&nbsp;</div>
+				<div class="title is-4">&nbsp;of&nbsp;</div>
 				<div class="field has-addons">
 				  <p class="control">
 				    <span class="select" required>
 				      <select id="asset" name="asset" type="text" onchange="assetCheck()" required>
+				        <option selected="selected">ETH</option>
 				        <option>BTC</option>
-						<option selected="selected">ETH</option>
 						<option>XRP</option>
 						<option>LTC</option>
 						<option>DASH</option>
 						<option>STRAT</option>
 						<option>XMR</option>
-						<option>ZEC</option>
-						<option>GNT</option>
-						<option>SC</option>
-						<option>XLM</option>
 						<option>LSK</option>
-						<option>DOGE</option>
-						<option>ARDR</option>
-						<option>KMD</option>
-						<option>ANT</option>
-						<option>SYS</option>
-						<option>ANS</option>
-						<option>UBQ</option>
 						<option>PIVX</option>
+						<option>BLOCK</option>
 
-						<option disabled></option>
-						<option disabled>-------</option>
-						<option disabled></option>
+						<option disabled>---------</option>
 
 						<option>$$$</option>
 						<option>1337</option>
@@ -1001,7 +1002,7 @@
 				    </span>
 				  </p>
 				</div>
-				<div class="title is-3">&nbsp;is&nbsp;</div>
+				<div class="title is-4">&nbsp;is&nbsp;</div>
 				<div class="field has-addons">
 				  <p class="control">
 				    <span class="select">
@@ -1012,7 +1013,7 @@
 				    </span>
 				  </p>
 				</div>
-				<div class="title is-3">&nbsp;a value of&nbsp;</div>
+				<div class="title is-4">&nbsp;a value of&nbsp;</div>
 				<div class="field has-addons">
 					<div class="data-tip" data-tip="Only use numbers and one decimal: XXXX.XXX">
 						<p class="control">
@@ -1028,7 +1029,7 @@
 					</div>
 				</div>
 				<!-- <div class="title is-3">.</div> -->
-				<br><p class="inline">You will receive a<div id="typeProper" class="inline">n</div> <strong><em id="typeVal">email</em></strong> sent to <strong><em id="contactVal">(enter email address)</em></strong> when the <strong><em id="metricVal">price</em></strong> of <strong><em id="assetVal">ETH</em></strong> is <strong><em id="directionVal">above</em></strong> a value of <strong><em id="currencyVal">$</em><em id="amountVal">(enter value)</em></strong></p><br>
+				<br><br><p class="inline">You will receive a<div id="typeProper2" class="inline">n</div> <strong><em id="typeVal">email</em></strong> sent to <strong><em id="contactVal">(enter email address)</em></strong> when the <strong><em id="metricVal">price</em></strong> of <strong><em id="assetVal">ETH</em></strong> is <strong><em id="directionVal">above</em></strong> a value of <strong><em id="currencyVal">$</em><em id="amountVal">(enter value)</em></strong></p><br>
 
 				<div class="field is-horizontal">
 				  <div class="field-body">
