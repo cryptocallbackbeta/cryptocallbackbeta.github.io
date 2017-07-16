@@ -1,30 +1,43 @@
+function log(message, status) {
+	// status options: start(green), wait(orange), success(green)
+	if (status == "start") {
+		console.log("%c " + message, 'background: #fff; color: #269920');
+	} else if (status == "wait") {
+		console.log("%c " + message, 'background: #fff; color: #FF9900');
+	} else if (status == "success") {
+		console.log("%c " + message, 'background: #fff; color: #269920');
+	} else if (status == "error") {
+		console.log("%c " + message, 'background: #fff; color: #db0202');
+	} else if ( !status ) {
+		console.log("%c " + message, 'background: #fff; color: #000');
+	}
+}
+
 document.querySelector(".nav-toggle").addEventListener('click', function () {
-		log("Menu Toggling Initiated", "start");
-  this.classList.toggle('is-active');
-  document.querySelector(".nav-menu").classList.toggle("is-active");
-	  log("Menu Toggle Complete", "success");
+		// log("Menu Toggling Initiated", "start");
+	this.classList.toggle('is-active');
+	document.querySelector(".nav-menu").classList.toggle("is-active");
+		log("Menu Toggle Complete", "success");
 });
 
 
 var form = document.getElementById("alertForm");
 var submitButton = document.getElementById("alert-submit");
 submitButton.addEventListener("click", function(e) {
-  e.preventDefault();
-  if (errCheck()) {
-	  createAlert();
-  }
+	e.preventDefault();
+	if (errCheck()) {
+		createAlert();
+	}
 });
 
 
 function createAlert() {
-	// e.preventDefault();
 		log("Form Submission Initiated", "start");
 		log("\t- Form Data: \n" + form, "wait");
-  var data = toJSON(form);
-  var url = "http://45.79.96.75:3000";
-  // var url = "#";
-  send(url, data, "post");
-	  log("Form Successfully Sent", "success");
+	var data = toJSON(form);
+	var url = "http://45.79.96.75:3000/alerts";
+	send(url, data, "post");
+		log("Form Successfully Sent", "success");
 }
 
 
@@ -34,7 +47,7 @@ function toJSON( data ) {
 	var elements = data.querySelectorAll( "input, select, textarea" );
 		log("\t- Object:\n", "wait")
 	var type
-	for( var i = 0; i < elements.length; ++i ) {
+	for ( var i = 0; i < elements.length; ++i ) {
 		var element = elements[i];
 		var valid = false;
 		var key = element.name.toLowerCase();
@@ -52,7 +65,10 @@ function toJSON( data ) {
 				} else if (type === "email") {
 					if ( isEmail(value) ) { valid = true } }
 			} else if (key === "asset") {
-				if ( isAsset(value) ) { valid = true }
+				if ( isAsset(value) ) { 
+					value = value.toUpperCase();
+					valid = true 
+				}
 			} else if (key === "metric") {
 				if ( isMetric(value) ) { valid = true }
 			} else if (key === "direction") {
@@ -84,59 +100,107 @@ function toJSON( data ) {
 }
 
 
+// Sends json through post
+// function send(path, data, method) {
+// 		log("- Preparing POST Data To Send", "wait");
+//   method = method || "post"; // Set method to post by default, if not specified.
+//   var xhr = new XMLHttpRequest();
+// 	xhr.open(method, path, true);
+// 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+// 		log("- Sending POST Data", "wait");
+// 	// xhr.onload = function() {
+// 	//   if (xhr.status === 200) {
+// 	// 		var data = JSON.parse(xhr.responseText);
+// 	//   }
+// 	// };
+// 	xhr.send(data);
+// 		log("- POST Data Complete", "wait");
+// }
+
+
+
+
+// Make the actual CORS request.
+function send(url, data, method) {
+  var xhr = createCORSRequest(method, url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send(data);
+}
+
+// Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+  return text.match('<title>(.*)?</title>')[1];
+}
+
+
+
 
 function isNotificationType(type) {
-  var re = /^(text message|email|push notification)$/;
-  return re.test(type);
+	var re = /^(text message|email|push notification)$/;
+	return re.test(type);
 }
 function isEmail(email) {
 	var re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  return re.test(email);
+	return re.test(email);
 }
 function isPhone(num) {
 	var re = /^[0-9]{10,12}$/;
-  return re.test(num);
+	return re.test(num);
 }
 function isAsset(asset) {
 	return assets.includes(asset)
 }
 function isMetric(metric) {
-  var re = /^(price|volume|market cap)$/;
-  return re.test(metric);
+	var re = /^(price|volume|market cap)$/;
+	return re.test(metric);
 }
 function isDirection(direction) {
-  var re = /^(above|below)$/;
-  return re.test(direction);
+	var re = /^(above|below)$/;
+	return re.test(direction);
 }
 function isCurrency(currency) {
 	var currencies = ["aud","brl","cad","chf","cny","eur","gbp","hkd","idr","inr","jpy","krw","mxn","rub","usd"]
 	return currencies.includes(currency)
 }
 function isNumber(num) {
-	// console.log("isnumber: " + errMessage)
-  return !isNaN(parseFloat(num)) && isFinite(num) && !0;
-return true
+		// console.log("isnumber: " + errMessage)
+	return !isNaN(parseFloat(num)) && isFinite(num) && !0;
+	// return true
 }
 
 
-
-
-// Sends json through post
-function send(path, data, method) {
-		log("- Preparing POST Data To Send", "wait");
-  method = method || "post"; // Set method to post by default, if not specified.
-  var xhr = new XMLHttpRequest();
-	xhr.open(method, path, true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-		log("- Sending POST Data", "wait");
-	// xhr.onload = function() {
-	//   if (xhr.status === 200) {
-	// 		var data = JSON.parse(xhr.responseText);
-	//   }
-	// };
-	xhr.send(data);
-		log("- POST Data Complete", "wait");
-}
 
 
 var errMessage = {
