@@ -124,19 +124,17 @@ function toJSON( data ) {
 function send(url, data, method) {
   var xhr = createCORSRequest(method, url);
   if (!xhr) {
-    alert('CORS not supported');
+    log('CORS not supported', "error");
     return;
   }
 
   // Response handlers.
   xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
+    log('Response from CORS request', "success");
   };
 
   xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
+    log('Woops, there was an error making the request.', "error");
   };
 
   xhr.send(data);
@@ -157,11 +155,6 @@ function createCORSRequest(method, url) {
     xhr = null;
   }
   return xhr;
-}
-
-// Helper method to parse the title tag from the response.
-function getTitle(text) {
-  return text.match('<title>(.*)?</title>')[1];
 }
 
 
