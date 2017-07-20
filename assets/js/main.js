@@ -61,9 +61,14 @@ function toJSON( data ) {
 				if (type === "push notification" || type === "text message") {
 					value = value.replace(/[^\w]/gi, '')
 					if ( isPhone(value) ) {
+						key = "phone"
 						valid = true }
 				} else if (type === "email") {
-					if ( isEmail(value) ) { valid = true } }
+					if ( isEmail(value) ) { 
+						key = "email"
+						valid = true 
+					} 
+				}
 			} else if (key === "asset") {
 				if ( isAsset(value) ) { 
 					value = value.toUpperCase();
@@ -80,6 +85,7 @@ function toJSON( data ) {
 			} else if (key === "amount") {
 				value = Number( value.replace(/[^0-9\.]+/g,""));
 				if ( isNumber(value) ) {
+					value = value.toString()
 					valid = true }
 			} else {
 					log("\t\t\t- Form Validation Failed On - " + key + ": " + value, "error");
@@ -96,66 +102,48 @@ function toJSON( data ) {
 	}
 		log("\t- Form Data Converted To Object", "wait");
 		log("\t- Form Data Object: \n" + JSON.stringify(obj), "wait");
-	return JSON.stringify( obj );
+	return param( obj );
 }
+
+function param(object) {
+    var encodedString = '';
+    for (var prop in object) {
+        if (object.hasOwnProperty(prop)) {
+            if (encodedString.length > 0) {
+                encodedString += '&';
+            }
+            encodedString += encodeURI(prop + '=' + object[prop]);
+        }
+    }
+    return encodedString;
+}
+
 
 
 // Sends json through post
-// function send(path, data, method) {
-// 		log("- Preparing POST Data To Send", "wait");
-//   method = method || "post"; // Set method to post by default, if not specified.
-//   var xhr = new XMLHttpRequest();
-// 	xhr.open(method, path, true);
-// 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-// 		log("- Sending POST Data", "wait");
-// 	// xhr.onload = function() {
-// 	//   if (xhr.status === 200) {
-// 	// 		var data = JSON.parse(xhr.responseText);
-// 	//   }
-// 	// };
-// 	xhr.send(data);
-// 		log("- POST Data Complete", "wait");
-// }
-
-
-
-
-// Make the actual CORS request.
-function send(url, data, method) {
-  var xhr = createCORSRequest(method, url);
-  if (!xhr) {
-    log('CORS not supported', "error");
-    return;
-  }
-
-  // Response handlers.
-  xhr.onload = function() {
-    log('Response from CORS request', "success");
-  };
-
-  xhr.onerror = function() {
-    log('Woops, there was an error making the request.', "error");
-  };
-
-  xhr.send(data);
+function send(path, data, method) {
+		log("- Preparing POST Data To Send", "wait");
+	method = method || "post"; // Set method to post by default, if not specified.
+	var xhr = new XMLHttpRequest();
+	xhr.open(method, path, true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+		log("- Sending POST Data", "wait");
+	xhr.onload = function() {
+		if (xhr.status === 200) {
+			// alert("Sent")
+		}
+	};
+	xhr.onerror = function() {
+		// showMessage("")
+	};
+	xhr.send(data);
+		log("- POST Data Complete", "wait");
 }
 
-// Create the XHR object.
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // XHR for Chrome/Firefox/Opera/Safari.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // XDomainRequest for IE.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
-  }
-  return xhr;
-}
+// <div class="notification is-danger">
+//   <button class="delete"></button>
+//   Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit
+// </div>
 
 
 
