@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme1">
 	<head>
 		<meta charset="UTF-8">
-		<title>CryptoCallback</title>
-		<link rel="icon" type="image/png" href="assets/img/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CryptoCallback: Contact Us</title>
+		<meta name="author" content="CryptoCallback.com">
+		<meta name="subject" content="Crypto">
+		<meta name="description" content="CryptoCallback welcomes feedback and ideas to improve our tools and resources in order to better serve the community.">
+		<meta name="keywords" content="contact, crypto, callback, feedback, info, ideas, feature, tool">
+		<meta name="language" content="english">
+		<meta name="copyright" content="CryptoCallback">
+		<meta name="contact" content="cryptocallback@gmail.com">
+		<meta name="distribution" content="global">
+		<meta name="robots" content="index,follow">
+		<meta name="country" content="USA">
+
+
+		<link rel="icon" type="image/png" href="assets/img/icon.png" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/bulma.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 	</head>
-	<body>
+	<body id="contact">
 
 
 		<!-- Menu -->
-		<nav class="nav bg-primary">
+		<nav class="nav theme2">
 			<div class="container">
 			  <div class="nav-left">
-			    <a href="https://cryptocallback.com" target="_self" class="nav-item">
+			    <a href="https://beta.cryptocallback.com" target="_self" class="nav-item">
 			    	<div class="title is-4 color-white">
-			    			CryptoCallback
+		    			CryptoCallback
 			    	</div>
 			    </a>
 			  </div>
@@ -27,170 +39,152 @@
 			    <span></span>
 			    <span></span>
 			  </span>
-			  <div class="nav-menu nav-right">
-			    <a href="https://cryptocallback.com/how-it-works" target="_self" class="nav-item color-white hover-highlight">
+			  <div class="nav-menu nav-right theme2">
+			    <a href="https://beta.cryptocallback.com/how-it-works" target="_self" class="nav-item theme1 hover-highlight">
 			      How It Works
 			    </a>
-			    <a href="https://cryptocallback.com/faq" target="_self" class="nav-item color-white hover-highlight">
+			    <a href="https://beta.cryptocallback.com/faq" target="_self" class="nav-item theme1 hover-highlight">
 			      FAQ
 			    </a>
-			    <a href="https://cryptocallback.com/resources" target="_self" class="nav-item color-white hover-highlight">
+			    <a href="https://beta.cryptocallback.com/resources" target="_self" class="nav-item theme1 hover-highlight">
 			      Tools
 			    </a>
 			    <div class="divider-vertical"></div>
-			    <a href="https://cryptocallback.com/blank" target="_self" class="nav-item color-white hover-highlight">
+			    <a href="https://beta.cryptocallback.com/blank" target="_self" class="nav-item theme1 hover-highlight">
 			      Donate
 			    </a>
+					<div id="settings" class="nav-item field">
+					  <p class="control has-icons-left">
+					    <span class="nav-item hover-highlight fa fa-cogs" aria-hidden="true">
+					    <div class="setting hover-highlight is-hidden-desktop">&nbsp;Toggle Theme</div>
+					  </p>
+					</div>
+
 			  </div>
 			</div>  
-		</nav>		<!-- Header -->
+		</nav>		
+
+
+
+		<!-- Header -->
 		<section class="hero">
 		  <div class="hero-body">
 		    <div class="container">
-		      <h1 class="title is-1">
-		        Create a free alert!
+		      <h1>
+		        Contact Us
 		      </h1>
 		    </div>
 		  </div>
 		</section>
 
 
+		<section class="contact-form content columns center">
+				<form id="contact-form" class="column is-half-desktop is-three-quarters-tablet is-three-quarters-mobile center" action="https://formspree.io/cryptocallback@gmail.com"
+      method="POST">
+					<div class="field left">
+					  <label class="label">Name</label>
+					  <div class="control has-icons-left has-icons-right">
+					    <input class="input" type="text" name="name" placeholder="Name">
+					    <span class="icon is-small is-left">
+					      <i class="fa fa-user"></i>
+					    </span>
+					  </div>
+					</div>
 
-		<!-- Alert Form -->
-		<section class="container alert-form center">
-			<form id="alertForm">
-				<div class="title is-3">Send a&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <span class="select">
-				      <select name="notification_type">
-				        <option selected="selected">Push Notification</option>
-				        <option>Text Message</option>
-				        <option>Email</option>
-				      </select>
-				    </span>
-				  </p>
-				</div>
-				<div class="title is-3">&nbsp;to&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <input class="input" name="contact" type="text" placeholder="Phone Number">
-				  </p>
-				</div>
-				<div class="title is-3">&nbsp;when the&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <span class="select">
-				      <select name="metric">
-				        <option selected="selected">Price($USD)</option>
-				        <option>Volume</option>
-				        <option>Market Cap</option>
-				      </select>
-				    </span>
-				  </p>
-				</div>
-				<div class="title is-3">&nbsp;of&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <span class="select">
-				      <select name="asset">
-				        <option selected="selected">ETH</option>
-				        <option>BTC</option>
-				        <option>LTC</option>
-				      </select>
-				    </span>
-				  </p>
-				</div>
-				<div class="title is-3">&nbsp;is&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <span class="select">
-				      <select name="direction">
-				        <option selected="selected">Above</option>
-				        <option>Below</option>
-				      </select>
-				    </span>
-				  </p>
-				</div>
-				<div class="title is-3">&nbsp;a value of&nbsp;</div>
-				<div class="field has-addons">
-				  <p class="control">
-				    <input class="input" name="value" type="text" placeholder="$1000">
-				  </p>
-				</div>
-				<div class="title is-3">.</div>
-				
-				<p>You will receive a <strong><em class="notification-type">push notification</em></strong> sent to <strong><em class="contact">973-768-4048</em></strong> when the <strong><em class="metric">price</em></strong> of <strong><em class="asset">ETH</em></strong> is <strong><em class="direction">above</em></strong> a value of <strong><em class="value">$1000</em></strong></p><br>
+					<div class="field left">
+					  <label class="label">Email</label>
+					  <div class="control has-icons-left has-icons-right">
+					    <input class="input" type="email" name="_replyto" placeholder="Email" pattern="*@*" required>
+					    <span class="icon is-small is-left">
+					      <i class="fa fa-envelope"></i>
+					    </span>
+					  </div>
+					</div>
 
-				<div class="field is-horizontal">
-				  <div class="field-body">
-				    <div class="field">
-				      <div class="control center">
-				        <input id="submit-btn" type="submit" class="button is-primary" value="Submit Alert"/>
-				      </div>
-				    </div>
-				  </div>
-				</div>
-			</form>
+					<div class="field left">
+					  <label class="label">Subject</label>
+					  <div class="control">
+					    <div class="select">
+					      <select name="subject">
+					        <option>General Inquiry</option>
+					        <option>Feedback</option>
+					        <option>Feature Request</option>
+					        <option>Advertising</option>
+					        <option>Report Bug</option>
+					        <!-- <option>Data Error</option>
+					        <option>Data Submission</option> -->
+					      </select>
+					    </div>
+					  </div>
+					</div>
+
+					<div class="field left">
+					  <label class="label">Message</label>
+					  <div class="control">
+					    <textarea class="textarea" name="message" placeholder="Textarea" pattern=".{15,}" required></textarea>
+					  </div>
+					</div>
+
+					<input type="hidden" name="_subject" value="New submission!" />
+					<input type="hidden" name="_next" value="#" />
+					<input type="hidden" name="_cc" value="beta.cryptocallback@gmail.com" />
+					<input type="hidden" name="_format" value="plain" />
+					<input type="text" name="_gotcha" style="display:none" />
+
+					<div class="field left is-grouped">
+					  <div class="control">
+						  <input class="button is-primary" type="submit" value="Send">
+					  </div>
+					</div>
+				</form>
 		</section>
+		<br><br>
 
-
-
-
-		<!-- Divider -->
-		<section class="level donate-divider">
-		  <div class="level-item has-text-centered">
-		  	<div class="columns1">
-			    <div class="column1 1is-half">
-			    	Please <a href="https://cryptocallback.com/donate" target="_self">&nbsp;donate&nbsp;</a> to help support this project and the development of additional tools and resources so we may continue to offer this free service.
-		    	</div>
-		    </div>
-		  </div>
-		</section><!-- Footer -->
-		<footer>
+		<!-- Footer -->
+		<footer class="theme1">
 			<!-- Footer Links -->
-			<div class="footer bg-primary">
+			<div class="footer footer-links theme2">
 			  <div class="columns">
 					  <div class="column is-4 is-offset-1">
-				      <p class="left title is-5 is-spaced">Company & Team</p>
+				      <p class="color-grey left title is-5 is-spaced">Company & Team</p>
 						  <div class="left title is-6">
-					    	<a href="https://cryptocallback.com/about" target="_self" class="color-white hover-highlight slim disabledd">About</a>
-					    	<a href="https://cryptocallback.com/donate" target="_self" class="color-white hover-highlight slim disabledd">Donate</a>
-					    	<a href="https://cryptocallback.com/news" target="_self" class="color-white hover-highlight slim disabledd">News & Blog</a>
-					    	<a href="https://cryptocallback.com/contact" target="_self" class="color-white hover-highlight slim disabledd">Contact Us</a>
+					    	<a href="https://beta.cryptocallback.com/about" target="_self" class="color-white hover-highlight link-width">About</a>
+					    	<a href="https://beta.cryptocallback.com/donate" target="_self" class="color-white hover-highlight link-width">Donate</a>
+					    	<!-- <a href="https://beta.cryptocallback.com/blockchain-news" target="_self" class="color-white hover-highlight link-width">News & Blog</a> -->
+					    	<a href="https://beta.cryptocallback.com/contact" target="_self" class="color-white hover-highlight link-width">Contact Us</a>
 					    </div>
 				    </div>
 				    <div class="column is-4">
-				      <p class="left title is-5 is-spaced">Help & Support</p>
+				      <p class="color-grey left title is-5 is-spaced">Help & Support</p>
 				    	<div class="left title is-6">
-					    	<a href="https://cryptocallback.com/faq" target="_self" class="color-white hover-highlight slim disabledd">FAQ</a>
-					    	<a href="https://cryptocallback.com/how-it-works" target="_self" class="color-white hover-highlight slim disabledd">How it works</a>
-					    	<a href="https://cryptocallback.com/resources" target="_self" class="color-white hover-highlight slim disabledd">Tools & Resources</a>
-					    	<a href="https://cryptocallback.com/docs" target="_self" class="color-white hover-highlight slim disabledd">API for developers</a>
+					    	<a href="https://beta.cryptocallback.com/faq" target="_self" class="color-white hover-highlight link-width">FAQ</a>
+					    	<a href="https://beta.cryptocallback.com/how-it-works" target="_self" class="color-white hover-highlight link-width">How It Works</a>
+					    	<a href="https://beta.cryptocallback.com/resources" target="_self" class="color-white hover-highlight link-width">Tools & Resources</a>
+					    	<!-- <a href="https://beta.cryptocallback.com/docs" target="_self" class="color-white hover-highlight link-width">API for developers</a> -->
 				    	</div>
 				    </div>
 				    <div class="column is-4">
-				      <p class="left title is-5 is-spaced">Follow Us</p>
+				      <p class="color-grey left title is-5 is-spaced">Follow Us</p>
 				      <div class="left title is-6 social">
-					    	<a href="https://plus.google.com/+CryptoCallback" target="_blank" class="color-white hover-highlight slim disabledd">
+					    	<!-- <a href="https://plus.google.com/+CryptoCallback" target="_blank" class="color-white hover-highlight link-width">
 					    		<span class="icon">
 					    			<i class="fa fa-google-plus"></i>
 					    		</span>
 					    		&nbsp;Google +
-					    	</a>
-					    	<a href="https://twitter.com/cryptocallback" target="_blank" class="color-white hover-highlight slim disabledd">
+					    	</a> -->
+					    	<a href="https://twitter.com/cryptocallback" target="_blank" class="color-white hover-highlight link-width">
 					    		<span class="icon">
 					    			<i class="fa fa-twitter"></i>
 					    		</span>
 					    		&nbsp;Twitter
 					    	</a>
-					    	<a href="https://t.me/cryptocallback" target="_blank" class="color-white hover-highlight slim disabledd">
+					    	<a href="https://t.me/cryptocallback" target="_blank" class="color-white hover-highlight link-width">
 					    		<span class="icon">
 					    			<i class="fa fa-send"></i>
 					    		</span>
 					    		&nbsp;Telegram
 					    	</a>
-					    	<a href="https://www.reddit.com/r/cryptocallback/" target="_blank"class="color-white hover-highlight slim disabledd"> 
+					    	<a href="https://www.reddit.com/r/cryptocallback/" target="_blank"class="color-white hover-highlight link-width"> 
 					    		<span class="icon">
 					    			<i class="fa fa-reddit-alien"></i>
 					    		</span>
@@ -198,14 +192,14 @@
 					    	</a>
 				    	</div>
 				    </div>
-				  </div>>
+				  </div>
 			  </div>
 			</div>
 			<!-- Footer Base -->
-			<div class="footer-base level container ">
+			<div class="footer-base level container">
 			  <div class="level-left">
-			    <a href="https://cryptocallback.com/terms-of-use" target="_blank" class="level-item hover-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Terms of Use</a>
-			    <a href="https://cryptocallback.com/privacy-policy" target="_blank" class="level-item hover-highlight">Privacy Policy</a>
+			    <a href="https://beta.cryptocallback.com/terms-of-use" target="_blank" class="level-item hover-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Terms of Use</a>
+			    <a href="https://beta.cryptocallback.com/privacy-policy" target="_blank" class="level-item hover-highlight">Privacy Policy</a>
 			  </div>
 			  <div class="level-right">
 			    <p class="level-item">© CryptoCallback 2017</p>
@@ -213,8 +207,7 @@
 			</div>
 		</footer>
 
-		<script src="assets/js/helpers.js"></script>
-		<script src="assets/js/getAssets.js"></script>
+
 		<script src="assets/js/assets.js"></script>
 		<script src="assets/js/main.js"></script>
 	</body>

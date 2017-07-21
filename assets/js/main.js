@@ -13,12 +13,59 @@ function log(message, status) {
 	}
 }
 
+
+
+function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+r(function(){
+  if (theme) {
+  	if (theme == "light") {
+  		enableLightTheme()
+  	} else if (theme == "dark") {
+  		enableDarkTheme()
+  	}
+  } else {
+  	theme = "light"
+  	localStorage.setItem("theme", theme)
+  }
+});
+
+var theme = localStorage.getItem("theme") || "light"
+var fileref = document.createElement("link");
+fileref.id = "dark"
+fileref.rel = "stylesheet";
+fileref.type = "text/css";
+fileref.href = "assets/css/dark.css";
+
+document.querySelector("#settings").addEventListener('click', function () {
+		log("Changing theme, currently " + theme, "wait")
+	if (theme == "light") {
+		enableDarkTheme()
+	} else if (theme == "dark") {
+		enableLightTheme()
+	}
+	localStorage.setItem("theme", theme)
+});
+function enableDarkTheme() {
+		log("Enabling dark theme", "wait")
+	theme = "dark"
+	document.getElementsByTagName("head")[0].appendChild(fileref)
+}
+function enableLightTheme() {
+		log("Enabling light theme", "wait")
+	theme = "light"
+	var elem = document.getElementById("dark");
+  return elem.parentNode.removeChild(elem);
+}
+
+
+
 document.querySelector(".nav-toggle").addEventListener('click', function () {
 		// log("Menu Toggling Initiated", "start");
 	this.classList.toggle('is-active');
 	document.querySelector(".nav-menu").classList.toggle("is-active");
 		log("Menu Toggle Complete", "success");
 });
+
 
 
 var form = document.getElementById("alertForm");
@@ -29,8 +76,6 @@ submitButton.addEventListener("click", function(e) {
 		createAlert();
 	}
 });
-
-
 function createAlert() {
 		log("Form Submission Initiated", "start");
 		log("\t- Form Data: \n" + form, "wait");
@@ -39,8 +84,6 @@ function createAlert() {
 	send(url, data, "post");
 		log("Form Successfully Sent", "success");
 }
-
-
 function toJSON( data ) {
 		log("\t- Converting Form Data To Object", "wait");
 	var obj = {};
