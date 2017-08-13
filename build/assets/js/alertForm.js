@@ -154,7 +154,7 @@ function isPhone(num) {
 	return re.test(num);
 };
 function isAsset(asset) {
-	return assets.includes(asset)
+	return assetNames.includes(asset)
 };
 function isMetric(metric) {
 	var re = /^(price|volume|market cap)$/;
