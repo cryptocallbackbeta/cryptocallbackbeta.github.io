@@ -1,0 +1,135 @@
+		<!-- Header -->
+		<section class="hero">
+		  <div class="hero-body">
+		    <div class="container">
+		      <h1>
+		        Create a price, volume, or market cap alert for any crypto-asset
+		      </h1>
+		    </div>
+		  </div>
+		</section>
+
+		<!-- Alert Form -->
+		<section class="content columns alert-form center">
+			<form id="alertForm" class="column is-three-quarters-desktop is-three-quarters-tablet is-three-quarters-mobile center" novalidate="novalidate">
+				<div class="title">Send a<div id="typeProper1" class="inline">n</div>&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="type" name="notification_type" type="text" onchange="typeCheck()" required>
+				        <!-- <option>Push Notification</option>
+				        <option>Text Message</option> -->
+				        <option selected="selected">Email</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title">&nbsp;to&nbsp;</div>
+				<div class="field">
+				  <div id="contactTip" class="data-tip" data-tip="Enter your email address">
+				    <input id="contact" class="input" name="contact" type="email" placeholder="Email Address" onchange="contactCheck()">
+				  </div>
+				</div>
+				<div class="title">&nbsp;when the&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="metric" name="metric" type="text" onchange="metricCheck()" required>
+				        <option selected="selected">Price</option>
+				        <option>Volume</option>
+				        <option>Market Cap</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title">&nbsp;of&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select" required>
+				      <select style="width:140px" id="asset" name="asset" type="text" onchange="assetCheck()" required>
+				        <option selected="selected">Ethereum</option>
+				        <option>Bitcoin</option>
+								<option>Ripple</option>
+								<option>Litecoin</option>
+								<option>Dash</option>
+								<option>Stratis</option>
+								<option>Monero</option>
+								<option>Lisk</option>
+								<option>PIVX</option>
+								<option>Blocknet</option>
+
+								<option disabled>---------</option>
+								
+								#assetDropdownOptions
+
+
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title">&nbsp;is&nbsp;</div>
+				<div class="field has-addons">
+				  <p class="control">
+				    <span class="select">
+				      <select id="direction" name="direction" type="text" onchange="directionCheck()" required>
+				        <option selected="selected">Above</option>
+				        <option>Below</option>
+				      </select>
+				    </span>
+				  </p>
+				</div>
+				<div class="title">&nbsp;a value of&nbsp;</div>
+				<div class="field has-addons">
+					<div class="data-tip" data-tip="Only use numbers and one decimal: XXXX.XXX">
+						<p class="control">
+							<span class="select">
+								<select id="currency" name="currency" type="text" onchange="currencyCheck()">
+									<option selected="selected">&#36;(USD)</option>
+									<!-- <option>&euro;(EUR)</option> -->
+								</select>
+							</span>
+						</p>
+						<p class="control">
+							<input id="amount" class="input narrow" name="amount" type="number" placeholder="Value" onchange="amountCheck()">
+						</p>
+					</div>
+				</div>
+
+				<br>
+				
+				<div id="currentValues" class="inline">
+					<!-- <div id="assetVal2" class="inline">Ethereum</div>
+					<div id="metricVal2" class="inline">Price</div>&nbsp;:&nbsp;
+					<div id="currencyVal2" class="inline">&#36;</div>
+					<div id="currentVal" class="inline"></div> -->
+				</div>
+				
+				<div id="summary>">
+					<p><div class="inline">You will receive a<div id="typeProper2" class="inline">n</div> <strong><em id="typeVal">email</em></strong> sent to <strong><em id="contactVal">(enter email address)</em></strong> when the <strong><em id="metricVal">price</em></strong> of <strong><em id="assetVal">ETH</em></strong> is <strong><em id="directionVal">above</em></strong> a value of <strong><em id="currencyVal">&#36;</em><em id="amountVal">(enter value)</em></strong></div></p>
+				</div>
+
+				<br>
+
+				<div class="field is-horizontal">
+				  <div class="field-body">
+				    <div class="field">
+				      <div class="control center">
+				        <input id="alertSubmit" type="submit" class="button is-primary" value="Submit Alert"/>
+				      </div>
+				      <div id="formErrorMessage" class="help is-danger"> </div>
+				    </div>
+				  </div>
+				</div>
+			</form>
+		</section>
+
+
+
+		<!-- Divider -->
+		<section class="level donate-divider">
+		  <div class="level-item has-text-centered">
+		  	<div>
+		    	<a href="$root/donate.html" target="_self">&nbsp;Donate&nbsp;</a> to help support this project and the development of additional tools, resources, and services so we may continue to offer them for free.
+		    </div>
+		  </div>
+		</section><br><br>

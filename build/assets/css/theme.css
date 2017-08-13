@@ -1,0 +1,88 @@
+.default,
+.default select,
+.default input {
+	background-color: #fff;
+	color: #333 !important;
+}
+.default .nav,
+.default .footer {
+	background-color: #3A526D;
+	color: #fff;
+}
+@media (max-width: 769px) {	
+	.default .nav-menu {
+		color: #555
+	}
+}
+.default .content .column {
+  box-shadow: 0px 1px 5px 2px #ddd;
+}
+.default .donate-divider {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	box-shadow: none;
+}
+
+
+
+
+.dark,
+.dark .nav,
+.dark .nav-menu,
+.dark .footer,
+.dark select {
+	background-color: #070709;
+	color: #fff !important;
+}
+.dark .content .column {
+  box-shadow: 0px 0px 8px 0px #888;
+  color: inherit;
+}
+.dark input {
+	background-color: #fff;
+	/*-webkit-box-shadow:0 0 0 50px #fff inset;*/
+	color: #000;
+}
+.dark .button {
+	-webkit-box-shadow:0 0 0 50px #00D1B2 inset;
+}
+.dark .donate-divider {
+	border: none;
+	box-shadow: 0px 0px 8px 0px #888;
+}
+
+
+.light, 
+.light .nav, 
+.light input, 
+.light select, 
+.light .footer, 
+.light .footer a {
+	background-color: #fff;
+	color: #333 !important;
+}
+@media (max-width: 769px) {	
+	.light .nav-menu {
+		color: #555
+	}
+}
+.light .content .column {
+  box-shadow: 0px 1px 5px 2px #ddd;
+}
+.light .donate-divider {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	box-shadow: none;
+}
+.light .footer p {
+	color: #888;
+}
+
+
+
+
+.default .is-primary,
+.dark .is-primary,
+.light .is-primary {
+	color: #fff !important;
+}

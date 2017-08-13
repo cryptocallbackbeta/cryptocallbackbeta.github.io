@@ -1,0 +1,8 @@
+{
+	"title": "CryptoCallback: Create price, volume, and market cap alerts",
+	"description": "Receive reliable and timely alert notifications when the price, volume, or market cap of any crypto-asset moves above or below a certain value.",
+	"keywords": "crypto, asset, currency, price, volume, market cap, alert",
+	"robot": "index,follow",
+	"js": "assets/js/alertForm.js",
+	"cs": ""
+}

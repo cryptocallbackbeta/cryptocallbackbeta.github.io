@@ -1,0 +1,73 @@
+		<!-- Header -->
+		<section class="hero">
+		  <div class="hero-body">
+		    <div class="container">
+		      <h1>
+		        Contact Us
+		      </h1>
+		    </div>
+		  </div>
+		</section>
+
+
+		<section class="contact-form content columns center">
+				<form id="contact-form" class="column is-half-desktop is-three-quarters-tablet is-three-quarters-mobile center" action="https://formspree.io/$email"
+      method="POST">
+					<div class="field left">
+					  <label class="label">Name</label>
+					  <div class="control has-icons-left has-icons-right">
+					    <input class="input" type="text" name="name" placeholder="Name">
+					    <span class="icon is-small is-left">
+					      <i class="fa fa-user"></i>
+					    </span>
+					  </div>
+					</div>
+
+					<div class="field left">
+					  <label class="label">Email</label>
+					  <div class="control has-icons-left has-icons-right">
+					    <input class="input" type="email" name="_replyto" placeholder="Email" pattern="*@*" required>
+					    <span class="icon is-small is-left">
+					      <i class="fa fa-envelope"></i>
+					    </span>
+					  </div>
+					</div>
+
+					<div class="field left">
+					  <label class="label">Subject</label>
+					  <div class="control">
+					    <div class="select">
+					      <select name="subject">
+					        <option>General Inquiry</option>
+					        <option>Feedback</option>
+					        <option>Feature Request</option>
+					        <option>Advertising</option>
+					        <option>Report Bug</option>
+					        <!-- <option>Data Error</option>
+					        <option>Data Submission</option> -->
+					      </select>
+					    </div>
+					  </div>
+					</div>
+
+					<div class="field left">
+					  <label class="label">Message</label>
+					  <div class="control">
+					    <textarea class="textarea" name="message" placeholder="Textarea" pattern=".{15,}" required></textarea>
+					  </div>
+					</div>
+
+					<input type="hidden" name="_subject" value="New submission!" />
+					<input type="hidden" name="_next" value="#" />
+					<input type="hidden" name="_cc" value="$emailcc" />
+					<input type="hidden" name="_format" value="plain" />
+					<input type="text" name="_gotcha" style="display:none" />
+
+					<div class="field left is-grouped">
+					  <div class="control">
+						  <input class="button is-primary" type="submit" value="Send">
+					  </div>
+					</div>
+				</form>
+		</section>
+		<br><br>
