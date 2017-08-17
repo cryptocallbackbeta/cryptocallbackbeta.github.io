@@ -50,6 +50,14 @@ def runBuild():
     
 # speedBuild = True
 speedBuild = False
+# Changes to make before live push:
+#   build.py -> speedBuild = False
+#   settings/global.json -> root
+#   settings/global.json -> cname
+#   header.html -> analyticsRoot/analyticsBeta
+#   settings/global.json -> http/https
+#   assets/js/alertFarm.js -> server url
+#   Remove comments from all js files
 
 
 def build():
@@ -94,7 +102,7 @@ def updateAssets():
         start("updateAssets()")
         location = "/../../assets/"
         createAssetArray(location)
-        # 1028 on last update
+        # 1065 on last update
         createAssetsDropdownOptions(location)
         # createDummyData(location)
         end("\t")
